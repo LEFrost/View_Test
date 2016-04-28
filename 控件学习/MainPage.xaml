@@ -30,6 +30,7 @@
             <TextBlock Name="boxOfblock1"/>
             <TextBlock Name="boxOfblock2"/>
             <TextBlock Name="boxOfblock3"/>
+            
             <Border BorderBrush="Red" BorderThickness="2,5,6,8" CornerRadius="50,80,110,130">
                 <TextBlock>
                     <TextBlock.Text>

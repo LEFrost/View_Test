@@ -42,6 +42,7 @@ namespace 控件学习
         private void Box1_TextChanged(object sender, TextChangedEventArgs e)
         {
             boxOfblock3.Text = "你改变了文本";
+
         }
 
         private void a_Click(object sender, RoutedEventArgs e)

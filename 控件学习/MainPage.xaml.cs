@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI;
+using Windows.UI.Core;
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
 namespace 控件学习
@@ -24,9 +26,19 @@ namespace 控件学习
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        bool bo = false;
         public MainPage()
         {
             this.InitializeComponent();
+            AppViewBackButtonVisibility m = new AppViewBackButtonVisibility();
+            m= AppViewBackButtonVisibility.Visible;
+            List<Man> dates = new List<Man>()
+            {
+                new Man {Name="222" },
+                new Man {Name="2222" }
+
+            };
+            comb.ItemsSource = dates;
         }
 
         private void Box1_SelectionChanged(object sender, RoutedEventArgs e)
@@ -78,7 +90,7 @@ namespace 控件学习
 
         private void ProgressBar_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-    
+
         }
 
         private void false_Click(object sender, RoutedEventArgs e)
@@ -107,7 +119,7 @@ namespace 控件学习
             if (idt.Value < 10000)
             {
 
-                idt.Value +=10;
+                idt.Value += 10;
             }
             else
             {
@@ -115,6 +127,75 @@ namespace 控件学习
                 (sender as DispatcherTimer).Stop();
                 await new MessageDialog("进度完成").ShowAsync();
             }
+        }
+
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            Color clr = Color.FromArgb(255, (byte)red.Value, (byte)green.Value, (byte)blue.Value);
+            display.Fill = new SolidColorBrush(clr);
+            displayNum.Text = clr.ToString();
+
+        }
+
+        private void TimePicker_TimeChanged(object sender, TimePickerValueChangedEventArgs e)
+        {
+            timeDisplay.Text = time.Time.ToString() + " " + date.Date.ToString();
+        }
+
+        private void date_DateChanged(object sender, DatePickerValueChangedEventArgs e)
+        {
+            timeDisplay.Text = " " + date.Date.ToString();
+
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string s;
+            bo = true;
+            s = $"保存成功:{name.Text}，{id.Text}";
+            await new MessageDialog(s).ShowAsync();
+        }
+
+        private async void Flyout_Closed(object sender, object e)
+        {
+            if (bo)
+            {
+                bo = false;
+                return;
+            }
+            else
+            {
+                string s;
+                s = $"保存成功:{name.Text}，{id.Text}";
+                await new MessageDialog(s).ShowAsync();
+            }
+        }
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            FrameworkElement element = sender as FrameworkElement;
+            if (element != null)
+                FlyoutBase.ShowAttachedFlyout(element);
+        }
+
+
+
+        private async void TextBlock_Tapped_1(object sender, TappedRoutedEventArgs e)
+        {
+
+            await new MessageDialog("drop").ShowAsync();
+
+        }
+
+        private async void TextBlock_Tapped_2(object sender, TappedRoutedEventArgs e)
+        {
+            splitview.IsPaneOpen = false;
+            await new MessageDialog("YES").ShowAsync();
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            splitview.IsPaneOpen = (splitview.IsPaneOpen == true) ? false : true;
         }
     }
 }

@@ -8,68 +8,159 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock TextWrapping="WrapWholeWords">
-                <TextBlock.Inlines>
-                    <Run FontWeight="Bold" FontSize="14" Text="textblock"/>
-                    <Run FontStyle="Italic" Foreground="Red" Text="red text"/>
-                    <Run FontStyle="Italic"   Text="green text11111111111111111111111111111111111111111111111111111111111111111111111111" >
-                        <Run.Foreground>
-                            <LinearGradientBrush>
-                                <GradientStop Color="Green" Offset="0.0"/>
-                                <GradientStop Color="Orange" Offset="0.25"/>
-                                <GradientStop Color="Blue" Offset="0.8"/>
-                            </LinearGradientBrush>
-                        </Run.Foreground>
-                    </Run>
-                </TextBlock.Inlines>
-            </TextBlock>
-            <TextBox Name="Box1" AcceptsReturn="False"
+        <ScrollViewer>
+
+            <StackPanel>
+                <TextBlock TextWrapping="WrapWholeWords">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="textblock"/>
+                        <Run FontStyle="Italic" Foreground="Red" Text="red text"/>
+                        <Run FontStyle="Italic"   Text="green text11111111111111111111111111111111111111111111111111111111111111111111111111" >
+                            <Run.Foreground>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="Green" Offset="0.0"/>
+                                    <GradientStop Color="Orange" Offset="0.25"/>
+                                    <GradientStop Color="Blue" Offset="0.8"/>
+                                </LinearGradientBrush>
+                            </Run.Foreground>
+                        </Run>
+                    </TextBlock.Inlines>
+                </TextBlock>
+                <TextBox Name="Box1" AcceptsReturn="False"
                      InputScope="NameOrPhoneNumber" Header="允许换行" SelectedText="你选中了我"
                      SelectionChanged="Box1_SelectionChanged" Paste="Box1_Paste" TextChanged="Box1_TextChanged"/>
-            <TextBlock Name="boxOfblock1"/>
-            <TextBlock Name="boxOfblock2"/>
-            <TextBlock Name="boxOfblock3"/>
-            
-            <Border BorderBrush="Red" BorderThickness="2,5,6,8" CornerRadius="50,80,110,130">
-                <TextBlock>
-                    <TextBlock.Text>
-                        dsadasd
-                    </TextBlock.Text>
-                    <TextBlock.HorizontalAlignment>
-                        Center
-                    </TextBlock.HorizontalAlignment>
-                </TextBlock>
-            </Border>
-            <Border BorderThickness="30" CornerRadius="30">
-                <Border.BorderBrush>
-                    <LinearGradientBrush>
-                        <GradientStop Color="Black" Offset="0.0"/>
-                        <GradientStop Color="Yellow" Offset="0.5"/>
-                        <GradientStop Color="Blue" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.BorderBrush>
-            </Border>
-            <HyperlinkButton HorizontalAlignment="Center" Content="百度" NavigateUri="http://www.baidu.com"/>
-            <RelativePanel >
-                
-                <StackPanel>
-                    <TextBlock Name="header" Text="第一组"/>
-                    <RadioButton GroupName="1" Content="单选Button" Name="a" Click="a_Click"/>
-                    <RadioButton GroupName="1" Content="单选Button" Name="b" Click="a_Click"/>
-                    <RadioButton GroupName="1" Content="单选Button" Name="c" Click="a_Click"/>
-                </StackPanel>
-            </RelativePanel>
-            <CheckBox Name="one_checkbox" Foreground="Orange" Content="选择一" 
-                      Checked="one_checkbox_Checked" Unchecked="one_checkbox_Unchecked"/>
-            <CheckBox Name="two_checkbox" Foreground="Blue" Content="选择二" />
-            <StackPanel>
-                <RadioButton GroupName="pB" Name="fal" Content="非重复模式" Click="false_Click"/>
-                <RadioButton GroupName="pB" Name="tru" Content="重复模式" Click="true_Click"/>
-                <ProgressBar Name="idt" Height="20" Background="White" Foreground="Green" Minimum="0" Maximum="1000" ValueChanged="ProgressBar_ValueChanged"/>
-                <Button Content="开始" Click="Button_Click"/>
-            </StackPanel>
+                <TextBlock Name="boxOfblock1"/>
+                <TextBlock Name="boxOfblock2"/>
+                <TextBlock Name="boxOfblock3"/>
 
-        </StackPanel>
+                <Border BorderBrush="Red" BorderThickness="2,5,6,8" CornerRadius="50,80,110,130">
+                    <TextBlock>
+                        <TextBlock.Text>
+                            dsadasd
+                        </TextBlock.Text>
+                        <TextBlock.HorizontalAlignment>
+                            Center
+                        </TextBlock.HorizontalAlignment>
+                    </TextBlock>
+                </Border>
+                <Border BorderThickness="30" CornerRadius="30">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush>
+                            <GradientStop Color="Black" Offset="0.0"/>
+                            <GradientStop Color="Yellow" Offset="0.5"/>
+                            <GradientStop Color="Blue" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                </Border>
+                <HyperlinkButton HorizontalAlignment="Center" Content="百度" NavigateUri="http://www.baidu.com"/>
+                <RelativePanel >
+
+                    <StackPanel>
+                        <TextBlock Name="header" Text="第一组"/>
+                        <RadioButton GroupName="1" Content="单选Button" Name="a" Click="a_Click"/>
+                        <RadioButton GroupName="1" Content="单选Button" Name="b" Click="a_Click"/>
+                        <RadioButton GroupName="1" Content="单选Button" Name="c" Click="a_Click"/>
+                    </StackPanel>
+                </RelativePanel>
+                <CheckBox Name="one_checkbox" Foreground="Orange" Content="选择一" 
+                      Checked="one_checkbox_Checked" Unchecked="one_checkbox_Unchecked"/>
+                <CheckBox Name="two_checkbox" Foreground="Blue" Content="选择二" />
+                <StackPanel>
+                    <RadioButton GroupName="pB" Name="fal" Content="非重复模式" Click="false_Click"/>
+                    <RadioButton GroupName="pB" Name="tru" Content="重复模式" Click="true_Click"/>
+                    <ProgressBar Name="idt" Height="20" Background="White" Foreground="Green" Minimum="0" Maximum="1000" ValueChanged="ProgressBar_ValueChanged"/>
+                    <Button Content="开始" Click="Button_Click"/>
+                </StackPanel>
+                <ScrollViewer  HorizontalAlignment="Center" HorizontalScrollBarVisibility="Hidden">
+
+                    <Image Source="Assets/01fdadc8-e0e2-46a2-aac8-50b174f40cca_4.jpg" Height="100" Width="100"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Text="红色"/>
+                        <TextBox Text="{Binding ElementName=red,Path=Value,Mode=TwoWay}"/>
+                    </StackPanel>
+                    <Slider Name="red" Orientation="Vertical" Height="100" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+                    <StackPanel>
+                        <TextBlock Text="绿色"/>
+                        <TextBox Text="{Binding ElementName=green,Path=Value,Mode=TwoWay}"/>
+                    </StackPanel>
+                    <Slider Name="green" Orientation="Vertical" Height="100" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+                    <StackPanel>
+                        <TextBlock Text="蓝色"/>
+                        <TextBox Text="{Binding ElementName=blue,Path=Value,Mode=TwoWay}"/>
+                    </StackPanel>
+                    <Slider Name="blue" Orientation="Vertical" Height="100" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+                </StackPanel>
+                <Ellipse Name="display" Height="100" Stroke="Black"/>
+                <TextBlock Name="displayNum" Text="0"/>
+                <StackPanel Orientation="Horizontal">
+
+                    <TimePicker Name="time" Header="选择时间" TimeChanged="TimePicker_TimeChanged"/>
+                    <DatePicker Name="date" Header="选择日期" DateChanged="date_DateChanged"/>
+                </StackPanel>
+                <TextBlock Name="timeDisplay"/>
+                <Button HorizontalAlignment="Center" Width="120" Height="50">
+                    <Button.Flyout>
+                        <Flyout Closed="Flyout_Closed" >
+                            <StackPanel>
+                                <TextBox Name="name" Header="姓名"/>
+                                <TextBox Name="id" Header="身份证号"/>
+                                <Button Content="save" Click="Button_Click_1"/>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <TextBlock Text="tapped" Tapped="TextBlock_Tapped">
+                <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="1"/>
+                        <MenuFlyoutItem Text="1"/>
+                        <MenuFlyoutItem Text="1"/>
+                    </MenuFlyout>
+                    <!--<TimePickerFlyout >
+                    </TimePickerFlyout>
+                    <DatePickerFlyout>
+                    </DatePickerFlyout>-->
+                </FlyoutBase.AttachedFlyout>
+                </TextBlock>
+                <ComboBox HorizontalAlignment="Center"  Name="comb"  >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" Tapped="TextBlock_Tapped_1" ></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+            </StackPanel>
+        </ScrollViewer>
+        <ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Click="ToggleButton_Click" Foreground="Green" >
+            <ToggleButton.Content>
+                <Border Background="Transparent" Width="40" Height="40">
+                    <FontIcon Name="hamburger" FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"/>
+                </Border>
+            </ToggleButton.Content>
+        </ToggleButton>
+        <SplitView Name="splitview">
+            <SplitView.Pane>
+                <StackPanel>
+                    <TextBlock Text="this one" Tapped="TextBlock_Tapped_2"/>
+                    <TextBlock Text="this two" Tapped="TextBlock_Tapped_2"/>
+                    <TextBlock Text="this three" Tapped="TextBlock_Tapped_2"/>
+                </StackPanel>
+            </SplitView.Pane>
+        </SplitView>
     </Grid>
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Accept"/>
+            <AppBarButton Icon="AllApps" HorizontalAlignment="Left"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Add" Label="+"/>
+            </CommandBar.SecondaryCommands>
+
+
+        </CommandBar>
+    </Page.TopAppBar>
 </Page>
+   
